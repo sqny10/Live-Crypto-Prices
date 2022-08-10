@@ -1,0 +1,161 @@
+:root{
+    --dark-color: hsl(208, 25%, 25%);
+    --light-color: hsl(80, 10%, 94%);
+    --main-color: hsl(158, 20%, 82%);
+    --accent-color: hsl(187, 48%, 43%);
+    --delete-color: hsl(0, 68%, 42%);
+}
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    scroll-behavior: smooth;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+h1{
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 0;
+    background-color: var(--main-color);
+    color: var(--dark-color);
+}
+
+.grid-area{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 2rem 5rem;
+    gap: 2rem;
+}
+
+.grid-area .card{
+    background-color: var(--main-color);
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.grid-area .card #form-container{
+    display: block;
+}
+
+.grid-area .card #form-container #form input{
+    outline: none;
+    border: none;
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    padding: 1rem 0.5rem;
+    display: block;
+    width: 100%;
+    border-radius: 0.5rem;
+    color: var(--main-color);
+    font-size: 1.125rem;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.grid-area .card #form-container #form input:focus{
+    outline: 1px solid var(--delete-color);
+}
+
+.grid-area .card #form-container #form input[type="submit"]{
+    cursor: pointer;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.grid-area .card #form-container #form input[type="submit"]:hover{
+    opacity: 0.8;
+}
+
+.grid-area .card #form-container #form input + input{
+    margin-top: 1rem;
+}
+
+.grid-area .card .delete{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: inline-block;
+}
+
+.grid-area .card .delete a{
+    padding: 0.5rem;
+    color: var(--dark-color);
+    transition: color 0.5s ease-in-out;
+}
+
+.grid-area .card .delete a:hover{
+    color: var(--delete-color);
+}
+
+.price-container{
+    display: none;
+    color: var(--dark-color);
+    line-height: 3;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid var(--dark-color);
+    border-radius: 0.5rem;
+}
+
+.price-container #show-price p{
+    font-size: 1.5rem;
+}
+
+.price-container #show-price a{
+    transition: color 0.5s ease-in-out;
+}
+
+.price-container #show-price a:hover{
+    color: var(--delete-color);
+}
+
+.grid-area .add-container{
+    align-self: center;
+    justify-self: center;
+    background-color: var(--accent-color);
+    border-radius: 1rem;
+}
+
+.grid-area .add-container #add-btn{
+    padding: 1.5rem;    
+    transition: opacity 0.25s ease-in-out;
+}
+
+.grid-area .add-container #add-btn:hover{
+    opacity: 0.8;
+}
+
+@media screen and (min-width: 800px) {
+    .grid-area{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .grid-area{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .grid-area{
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
